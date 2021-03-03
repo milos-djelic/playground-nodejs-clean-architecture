@@ -17,8 +17,6 @@ export class GetUsersUsecase {
         // process response and get entitites
         const users = await User.createFromResponse(rawResponse);
         
-        
-
         // add the missing fields to the user 
         const enrichedUsersPromises = users.map(this.enrichUsers.execute);
 
