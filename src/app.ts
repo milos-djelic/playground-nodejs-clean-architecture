@@ -16,7 +16,7 @@ const init = async () => {
     server.route({
         method: 'GET',
         path: '/',
-        handler: () => { return "OK"; }
+        handler: () => { return "OK"; } // @TODO put a normal healthz check
     });
 
     server.route({
