@@ -23,6 +23,8 @@ export class UserController {
     public getUsersByLanguage = async (request: Request, responseToolkit: ResponseToolkit): Promise<ResponseObject>  => {
         const language = request.query?.language;
 
+        // @TODO handle page and count params 
+
         if (!language) {
             throw new Error('No language passed');
         }
