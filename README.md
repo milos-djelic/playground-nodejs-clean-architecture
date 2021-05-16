@@ -10,7 +10,7 @@ The aim of this project is to implement best practicies of the clean architectur
 The application contains Dockerfile and can be run inside a docker container: 
 ```
 docker build -t github-users-01
-docker run -p 3000:3000
+docker run -p 3000:3000 -d github-users-01
 ```
 
 Alternatively, it can be run directly from the terminal: 
