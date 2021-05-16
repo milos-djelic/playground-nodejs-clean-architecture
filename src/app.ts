@@ -4,13 +4,13 @@ import { GithubService } from "./services/github-service";
 const githubService = new GithubService();
 const userController = new UserController(githubService);
 
-const Hapi = require('@hapi/hapi');
+import Hapi from '@hapi/hapi';
 
 const init = async () => {
 
     const server = Hapi.server({
         port: 3000,
-        host: 'localhost'
+        host: '0.0.0.0'
     });
 
     server.route({

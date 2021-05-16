@@ -4,6 +4,7 @@ export class User {
     public avatar: string;
     public numberOfFollowers: number;
     public url: string;
+    public knownFor: string; // name of the repository with the most stars
 
     public static create(data: RawUserResponse): User {
         const instance = new User();
@@ -11,7 +12,7 @@ export class User {
         instance.avatar = data.avatar_url;
         instance.url = data.url;
 
-        return instance;
+        return instance; 
     }
 
     public static createFromResponse (response: RawResponse) : User[] {

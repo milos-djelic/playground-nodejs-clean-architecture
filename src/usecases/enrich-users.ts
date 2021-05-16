@@ -1,18 +1,18 @@
-import axios from "axios";
 import { User } from "../entities/user";
+import { iService } from "../services/i-service";
 
 export class EnrichUsers {
-    public async execute(user: User): Promise<User> {
-        // move this to the service
-        const {data : {name, followers}} = await axios.get(user.url);
+  constructor(readonly githubService: iService) {}
 
-        const enrichedUser = new User();
+  public async execute(user: User): Promise<User> {
+    const { name, followers } = await this.githubService.getUserDetails(user);
+    const enrichedUser = new User();
 
-        enrichedUser.avatar = user.avatar;
-        enrichedUser.username = user.username;
-        enrichedUser.name = name;
-        enrichedUser.numberOfFollowers = followers;
+    enrichedUser.avatar = user.avatar;
+    enrichedUser.username = user.username;
+    enrichedUser.name = name;
+    enrichedUser.numberOfFollowers = followers;
 
-        return enrichedUser;
-    }
+    return enrichedUser;
+  }
 }
